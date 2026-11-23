@@ -1,0 +1,8 @@
+{% include "header.html" %}
+{% include "erreur.html" %}
+{% if valide %}<p class="valide">{{ valide }}</p>   {% endif %}
+<h1>Voici l'history</h1>
+<a href="{{ url_for('historyPreparation') }}" class="bouton"> En préparation</a>
+<a href="{{ url_for('historyChemin') }}" class="bouton"> En chemin</a>
+<a href="{{ url_for('historyLivre') }}" class="bouton"> livré</a>
+{% include "footer.html" %}

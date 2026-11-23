@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <script src="../static/js/script.js" defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizzeria</title>
+  </head>
+  <body>
+    <nav class="nav">
+      <!-- https://flask.palletsprojects.com/en/stable/quickstart/#routing-->
+      <a href="{{ url_for('index') }}" class="options">Accueil</a>
+      <a href="{{ url_for('commande') }}" class="options">Commande</a>
+      <a href="{{ url_for('history') }}" class="options">Historique</a>
+    </nav>
+    <img
+      src="../static/banderoll.png"
+      alt="chien-cool-pizza"
+      class="image-banderoll"
+    />
+
+    <header></header>
+    <main></main>
+  </body>
+</html>

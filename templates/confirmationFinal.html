@@ -1,0 +1,27 @@
+{% include "header.html" %}
+{% include "erreur.html" %}
+<div class="resume">
+  <h1>Vos infos</h1>
+  <p>Nom : {{ session['clientnom'] }}</p>
+  <p>Numéro de téléphone : {{ session['clientNum'] }}</p>
+  <p>Adress de livraison : {{ session['clientAddr'] }}</p>
+  <a href="{{ url_for('commandeClient') }}" class="bouton">Modiffier</a>
+</div>
+<div class="resume">
+  <h1>Votre commande</h1>
+  <p>Croûte : {{ session['croute'] }}</p>
+  <p>Sauce : {{ session['sauce'] }}</p>
+  <p>Ingrédients :</p>
+  <ul>
+    <li>{{ session['ingredient1'] }}</li>
+    <li>{{ session['ingredient2'] }}</li>
+    <li>{{ session['ingredient3'] }}</li>
+    <li>{{ session['ingredient4'] }}</li>
+  </ul>
+  <a href="{{ url_for('commande') }}" class="bouton">Modiffier</a>
+</div>
+<div class="resume">
+  <a href="{{ url_for('validation') }}" class="bouton">Payment</a>
+</div>
+
+{% include "footer.html" %}

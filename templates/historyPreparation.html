@@ -1,0 +1,42 @@
+{% include "header.html" %}
+{% include "erreur.html" %}
+{% include "valide.html" %}
+<div class="side_box">
+    <a href="{{ url_for('historyPreparation') }}" class="bouton format"> En préparation</a>
+    <a href="{{ url_for('historyChemin') }}" class="bouton format"> En chemin</a>
+    <a href="{{ url_for('historyLivre') }}" class="bouton format"> livré</a>
+</div>
+<h1> En préparation</h1>
+<div class="side_box">
+        {% for d in data %}
+        <div class="box">
+            <h2>Commande {{ d.numero_commande }}</h2>
+            <p>Statut : {{ d.statut }}</p>
+            <p>Client : {{ d.client_nom }}</p>
+            <p>Téléphone : {{ d.numero_telephone }}</p>
+            <p>Adresse : {{ d.adresse_livraison }}</p>
+            <p>Croûte : {{ d.croute_nom }}</p>
+            <p>Sauce : {{ d.sauce_nom }}</p>
+            {% for ingredient in data2 %}
+                {% if ingredient.commande_id == d.commande_id %}
+                    <p>Ingrédient : {{ ingredient.ingredient_nom }}</p>
+                {% endif %}
+            {% endfor %}
+            <form action="/modifierStatut" method="POST">
+                <input type="hidden" name="commande_id" value="{{ d.commande_id }}">
+                <select class="bouton" id="modification_statut" name="modification_statut">
+                    <option class="bouton" value="En préparation" selected>En préparation</option>
+                    <option class="bouton" value="En chemin" >En chemin</option>
+                    <option class="bouton" value="Livré">Livré</option>
+                </select>
+                <div class="space_between">
+                <input class="bouton" type="submit" value="Modifier" name="modifier">
+                <input class="bouton_del" type="submit" value="supprimer" name="supprimer">
+                </div>
+            </form>
+            <hr>
+        </div>
+        {% endfor %}
+</div>
+
+{% include "footer.html" %}

@@ -1,0 +1,94 @@
+{% include "header.html" %}
+{% include "erreur.html" %}
+<div class ="resume">
+<h1>Pizza</h1>
+<form class="form" action="/commandeTraitement" method="POST">
+  <label for="croute">croute:</label>
+  <select id="croute" name="croute">
+    <option value="">Choisissez une croûte</option>
+    {% for croute in croute %}
+    <option 
+      value="{{ croute.id }}|{{ croute.nom }}"
+      {% if croute.id|string == session.get('croute_id')|string %}selected{% endif %}
+    >
+      {{ croute.nom }}
+    </option>
+    {% endfor %}
+  </select>
+
+  <label for="sauce">sauce:</label>
+  <select id="sauce" name="sauce">
+    <option value="">Choisissez une sauce</option>
+    {% for sauce in sauce %}
+    <option 
+      value="{{ sauce.id }}|{{ sauce.nom }}"
+      {% if sauce.id|string == session.get('sauce_id')|string %}selected{% endif %}
+    >
+      {{ sauce.nom }}
+    </option>
+    {% endfor %}
+  </select>
+
+  <label for="ingredient1">ingredient1:</label>
+  <select id="ingredient1" name="ingredient1">
+    <option value="">Choisissez un ingredient</option>
+    {% for ingredient in ingredient %}
+    <option
+      value="{{ ingredient.id }}|{{ ingredient.nom }}"
+      {% if ingredient.id|string == session.get('ingredient1_id')|string %}selected{% endif %}
+    >
+      {{ ingredient.nom }}
+    </option>
+    {% endfor %}
+  </select>
+
+  <label for="ingredient2">ingredient2:</label>
+  <select id="ingredient2" name="ingredient2">
+    <option value="">Choisissez un ingredient</option>
+    {% for ingredient in ingredient %}
+    <option
+      value="{{ ingredient.id }}|{{ ingredient.nom }}"
+      {% if ingredient.id|string == session.get('ingredient2_id')|string %}selected{% endif %}
+    >
+      {{ ingredient.nom }}
+    </option>
+    {% endfor %}
+  </select>
+
+  <label for="ingredient3">ingredient3:</label>
+  <select id="ingredient3" name="ingredient3">
+    <option value="">Choisissez un ingredient</option>
+    {% for ingredient in ingredient %}
+    <option
+      value="{{ ingredient.id }}|{{ ingredient.nom }}"
+      {% if ingredient.id|string == session.get('ingredient3_id')|string %}selected{% endif %}
+    >
+      {{ ingredient.nom }}
+    </option>
+    {% endfor %}
+  </select>
+
+  <label for="ingredient4">ingredient4:</label>
+  <select id="ingredient4" name="ingredient4">
+    <option value="">Choisissez un ingredient</option>
+    {% for ingredient in ingredient %}
+    <option
+      value="{{ ingredient.id }}|{{ ingredient.nom }}"
+      {% if ingredient.id|string == session.get('ingredient4_id')|string %}selected{% endif %}
+    >
+      {{ ingredient.nom }}
+    </option>
+    {% endfor %}
+  </select>
+
+  <br />
+  <input
+    class="bouton"
+    id="commandeSubmit"
+    type="submit"
+    name="commandeSubmit"
+    value="Send Request"
+  />
+</form>
+</div>
+{% include "footer.html" %}

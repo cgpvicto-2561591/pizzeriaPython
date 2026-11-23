@@ -1,0 +1,18 @@
+{% include "header.html" %}
+{% include "erreur.html" %}
+<div class="resume">
+  <h1>Votre commande</h1>
+  <p>Croûte : {{ session['croute'] }}</p>
+  <p>Sauce : {{ session['sauce'] }}</p>
+  <p>Ingrédients :</p>
+  <ul>
+    <li>{{ session['ingredient1'] }}</li>
+    <li>{{ session['ingredient2'] }}</li>
+    <li>{{ session['ingredient3'] }}</li>
+    <li>{{ session['ingredient4'] }}</li>
+  </ul>
+  <a href="{{ url_for('commande') }}" class="bouton">Modiffier</a>
+  <a href="{{ url_for('commandeClient') }}" class="bouton">Suivant</a>
+</div>
+<!-- #comment -->
+{% include "footer.html" %}

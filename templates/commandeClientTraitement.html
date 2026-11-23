@@ -1,0 +1,12 @@
+{% include "header.html" %}
+{% include "erreur.html" %}
+<div class="resume">
+  <h1>Vos infos</h1>
+  <p>Nom : {{ session['clientnom'] }}</p>
+  <p>Numéro de téléphone : {{ session['clientNum'] }}</p>
+  <p>Adress de livraison : {{ session['clientAddr'] }}</p>
+  <a href="{{ url_for('commandeClient') }}" class="bouton">Modiffier</a>
+  <a href="{{ url_for('confirmation') }}" class="bouton">Confirmer</a>
+</div>
+<!-- #comment -->
+{% include "footer.html" %}

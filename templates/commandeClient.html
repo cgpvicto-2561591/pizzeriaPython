@@ -1,0 +1,46 @@
+{% include "header.html" %}
+{% include "erreur.html" %}
+<div class="resume">
+  <h1>Vos infos</h1>
+  <form action="/commandeClientTraitement" method="POST">
+    <div class="box_client">
+      <label for="client_nom">Nom :</label>
+      <input
+        type="text"
+        id="client_nom"
+        name="client_nom"
+        maxlength="60"
+        required
+        value="{{ session.get('clientnom', '') }}"
+      />
+    </div>
+    <br />
+    <div class="box_client">
+      <label for="client_numero_telephone">Numéro de téléphone :</label>
+      <input
+        type="tel"
+        id="client_numero_telephone"
+        name="client_numero_telephone"
+        maxlength="60"
+        required
+        value="{{ session.get('clientNum', '') }}"
+      />
+    </div>
+    <br />
+    <div class="box_client">
+      <label for="client_adresse_livraison">Adresse de livraison :</label>
+      <input
+        type="text"
+        id="client_adresse_livraison"
+        name="client_adresse_livraison"
+        maxlength="255"
+        required
+        value="{{ session.get('clientAddr', '') }}"
+      />
+    </div>
+    <br />
+    <input class="bouton" type="submit" />
+  </form>
+</div>
+<!-- #comment -->
+{% include "footer.html" %}
